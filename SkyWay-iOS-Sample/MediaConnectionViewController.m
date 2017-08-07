@@ -89,8 +89,9 @@ typedef NS_ENUM(NSUInteger, AlertType)
     //////////////////////////////////////////////////////////////////////
     ////////////////// END: Initialize SkyWay Peer ///////////////////////
     //////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                                                    peer   = [[SKWPeer alloc] initWithId:peerId options:options];
+	//SKWPeerコンストラクタのオプションに任意のPeerIDを指定する事もできます
+    //SKWPeer* peer = [[SKWPeer alloc] initWithId:peerId options:options];//
+    
     
     
     //////////////////////////////////////////////////////////////////////
@@ -102,7 +103,7 @@ typedef NS_ENUM(NSUInteger, AlertType)
 	SKWMediaConstraints* constraints = [[SKWMediaConstraints alloc] init];
 	constraints.maxWidth = 960;
 	constraints.maxHeight = 540;
-    //	constraints.cameraPosition = SKW_CAMERA_POSITION_BACK;
+  //constraints.cameraPosition = SKW_CAMERA_POSITION_BACK;
     constraints.cameraPosition = SKW_CAMERA_POSITION_FRONT;
     
 	_msLocal = [SKWNavigator getUserMedia:constraints];
@@ -325,11 +326,17 @@ typedef NS_ENUM(NSUInteger, AlertType)
 	_mediaConnection = nil;
 }
 
+
+
+
+
+
+
 #pragma mark -
 
 - (void)setCallbacks:(SKWPeer *)peer
 {
-	if (nil == peer)
+	if (nil == peer)//エラー回避？
 	{
 		return;
 	}
@@ -338,17 +345,18 @@ typedef NS_ENUM(NSUInteger, AlertType)
     ///////////////////// START: Set SkyWay peer callback   //////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
     
+    
 	// !!!: Event/Open
 	[peer on:SKW_PEER_EVENT_OPEN callback:^(NSObject* obj)
 	 {
 		 dispatch_async(dispatch_get_main_queue(), ^
 						{
-							if (YES == [obj isKindOfClass:[NSString class]])
+							if (YES == [obj isKindOfClass:[NSString class]]) //エラー回避？クラスにあるか
 							{
                                 _strOwnId = (NSString *)obj;
                                 
                                 UILabel* lbl = (UILabel*)[self.view viewWithTag:TAG_ID];
-                                if (nil != lbl)
+                                if (nil != lbl) //エラー回避？
                                 {
                                     [lbl setText:[NSString stringWithFormat:@"your ID: \n%@", _strOwnId]];
                                     [lbl setNeedsDisplay];
@@ -363,6 +371,8 @@ typedef NS_ENUM(NSUInteger, AlertType)
 						});
 	 }];
 	
+    
+    
 	// !!!: Event/Call
 	[peer on:SKW_PEER_EVENT_CALL callback:^(NSObject* obj)
 	 {
@@ -395,6 +405,11 @@ typedef NS_ENUM(NSUInteger, AlertType)
     //////////////////////////////////////////////////////////////////////////////////
 }
 
+
+
+
+
+
 - (void)clearCallbacks:(SKWPeer *)peer
 {
 	if (nil == peer)
@@ -409,6 +424,10 @@ typedef NS_ENUM(NSUInteger, AlertType)
 	[peer on:SKW_PEER_EVENT_DISCONNECTED callback:nil];
 	[peer on:SKW_PEER_EVENT_ERROR callback:nil];
 }
+
+
+
+
 
 - (void)setMediaCallbacks:(SKWMediaConnection *)media
 {
@@ -448,6 +467,12 @@ typedef NS_ENUM(NSUInteger, AlertType)
     /////////////////  END: Set SkyWay Media connection callback   ///////////////////
     //////////////////////////////////////////////////////////////////////////////////
 }
+
+
+
+
+
+
 
 - (void)clearMediaCallbacks:(SKWMediaConnection *)media
 {

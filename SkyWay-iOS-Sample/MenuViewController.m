@@ -79,6 +79,37 @@ typedef NS_ENUM(NSUInteger, ViewTag)
 }
 
 
+
+
+
+
+
+
+-(IBAction)changeSwitch
+{
+    AVCaptureDevice *captureDevice =[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    if(ledLightSwitch.on == YES){
+        self.view.backgroundColor=[UIColor whiteColor];
+        
+        [captureDevice lockForConfiguration:NULL];
+        captureDevice.torchMode=AVCaptureTorchModeOn;
+        [captureDevice unlockForConfiguration];
+    }else{
+        self.view.backgroundColor=[UIColor blackColor];
+        
+        [captureDevice lockForConfiguration:NULL];
+        captureDevice.torchMode = AVCaptureTorchModeOff;
+        [captureDevice unlockForConfiguration];
+    }
+}
+
+
+
+
+
+
+
 - (void)didReceiveMemoryWarning
 {
 	[super didReceiveMemoryWarning];
