@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="365" y="723"/>
+            <point key="canvasLocation" x="364" y="723"/>
         </scene>
         <!--Peers List View Controller-->
         <scene sceneID="OTo-fI-7Zq">
@@ -92,13 +92,34 @@
                     <view key="view" contentMode="scaleToFill" id="Ufx-tm-V2A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSj-ug-EC1">
+                                <rect key="frame" x="101" y="269" width="144" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-NZ-bCf">
+                                <rect key="frame" x="278" y="268" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="GetPeerId:" destination="Ocg-f7-UyX" eventType="touchUpInside" id="N83-LV-eIT"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="O1T-ce-5qd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="IAR-Iq-tDq"/>
+                    <connections>
+                        <outlet property="textField" destination="qSj-ug-EC1" id="g0v-mO-ScJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTB-7y-Bbz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="723"/>
+            <point key="canvasLocation" x="-330.39999999999998" y="722.78860569715152"/>
         </scene>
     </scenes>
 </document>

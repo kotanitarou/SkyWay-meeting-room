@@ -7,4 +7,9 @@
 
 @interface MenuViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+- (IBAction)GetPeerId:(UIButton *)sender;
+
+
 @end

@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, AlertType)
 	SKWMediaStream*		_msRemote;
 	SKWMediaConnection*	_mediaConnection;
 	
+    NSString*           _peerId;///////////////////////////
 	NSString*			_strOwnId;
 	BOOL				_bConnected;
 	
@@ -80,17 +81,21 @@ typedef NS_ENUM(NSUInteger, AlertType)
     option.key = kAPIkey;
     option.domain = kDomain;
     
+    _peerId= (@"kotanitarou");
+    
+    AppDelegate *ADl = (AppDelegate*)[[UIApplication sharedApplication] delegate]; // デリゲート呼び出し
+    _peerId = ADl.strId; // 代入
     // SKWPeer has many options. Please check the document. >> http://nttcom.github.io/skyway/docs/
     
     
-    _peer	= [[SKWPeer alloc] initWithId:nil options:option];
+    _peer	= [[SKWPeer alloc] initWithId:_peerId options:option];
     [self setCallbacks:_peer];
     
     //////////////////////////////////////////////////////////////////////
     ////////////////// END: Initialize SkyWay Peer ///////////////////////
     //////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                                                                    peer   = [[SKWPeer alloc] initWithId:peerId options:options];
+    //peer   = [[SKWPeer alloc] initWithId:peerId options:options];
     
     
     //////////////////////////////////////////////////////////////////////
@@ -335,7 +340,7 @@ typedef NS_ENUM(NSUInteger, AlertType)
 	}
 	
     //////////////////////////////////////////////////////////////////////////////////
-    ///////////////////// START: Set SkyWay peer callback   //////////////////////////
+    ///////////////////// START: Set SkyWay peer callback   //////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
     
 	// !!!: Event/Open

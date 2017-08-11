@@ -7,7 +7,6 @@
 
 #import "AppDelegate.h"
 #import "MediaConnectionViewController.h"
-#import "DataConnectionViewController.h"
 
 
 typedef NS_ENUM(NSUInteger, ViewTag)
@@ -24,7 +23,7 @@ typedef NS_ENUM(NSUInteger, ViewTag)
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor orangeColor]];
     
 	[self setTitle:@"Menu"];
 	
@@ -57,25 +56,6 @@ typedef NS_ENUM(NSUInteger, ViewTag)
 	[btnVideoChat addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
 	
 	[self.view addSubview:btnVideoChat];
-	
-	// Chat
-	rcDesign = CGRectZero;
-	rcDesign.origin.y = fButtonHeight * 2.0f;
-	rcDesign.size.width = rcClient.size.width;
-	rcDesign.size.height = fButtonHeight;
-
-	CGRect rcChat = CGRectInset(rcDesign, 8.0f, 4.0f);
-	
-	UIButton* btnChat = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[btnChat setTag:BTN_CHAT];
-	[btnChat setTitle:@"Data connection" forState:UIControlStateNormal];
-	[btnChat setBackgroundColor:[UIColor lightGrayColor]];
-	[btnChat setFrame:rcChat];
-	[btnChat addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-	
-	[self.view addSubview:btnChat];
-	
-
 }
 
 
@@ -100,22 +80,15 @@ typedef NS_ENUM(NSUInteger, ViewTag)
 		if (BTN_VIDEOCHAT == btn.tag)
 		{
 			// Video chat
-			MediaConnectionViewController* vcVideoChat = [[MediaConnectionViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
+			MediaConnectionViewController* vcVideoChat =
+            [[MediaConnectionViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
             NSString* strTitle = @"MediaConnection";
+
             [vcVideoChat.navigationItem setTitle:strTitle];
 			
 			vc = vcVideoChat;
 		}
-		else if (BTN_CHAT == btn.tag)
-		{
-			// Chat
-			DataConnectionViewController* vcChat = [[DataConnectionViewController alloc] initWithNibName:nil bundle:[NSBundle mainBundle]];
-            NSString* strTitle = @"DataConnection";
-            [vcChat.navigationItem setTitle:strTitle];
-			
-			vc = vcChat;
-		}
-
+        
 		if (nil != vc)
 		{
 			[self.navigationController pushViewController:vc animated:YES];
@@ -123,4 +96,8 @@ typedef NS_ENUM(NSUInteger, ViewTag)
 	}
 }
 
+- (IBAction)GetPeerId:(UIButton *)sender {
+    AppDelegate *ADl = (AppDelegate *)[[UIApplication sharedApplication] delegate]; // デリゲート呼び出し
+    ADl.strId = self.textField.text;
+}
 @end

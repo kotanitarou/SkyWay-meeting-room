@@ -11,7 +11,6 @@
 		3D1DDB6F1A25B98E0052B79C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1DDB6E1A25B98E0052B79C /* AVFoundation.framework */; };
 		3D9398EE19D9391100AEE6B1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9398ED19D9391100AEE6B1 /* CoreMedia.framework */; };
 		3DA167EF1A01CF1B002A591D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA167EE1A01CF1B002A591D /* MenuViewController.m */; };
-		3DA167F21A01D05F002A591D /* DataConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA167F11A01D05F002A591D /* DataConnectionViewController.m */; };
 		3DAABD6E19D5644200C765E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAABD6D19D5644200C765E1 /* main.m */; };
 		3DAABD7119D5644200C765E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAABD7019D5644200C765E1 /* AppDelegate.m */; };
 		3DAABD7419D5644200C765E1 /* MediaConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAABD7319D5644200C765E1 /* MediaConnectionViewController.m */; };
@@ -40,8 +39,6 @@
 		3D9398ED19D9391100AEE6B1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		3DA167ED1A01CF1B002A591D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		3DA167EE1A01CF1B002A591D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		3DA167F01A01D05F002A591D /* DataConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataConnectionViewController.h; sourceTree = "<group>"; };
-		3DA167F11A01D05F002A591D /* DataConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataConnectionViewController.m; sourceTree = "<group>"; };
 		3DAABD6819D5644200C765E1 /* SkyWay-iOS-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SkyWay-iOS-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DAABD6C19D5644200C765E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DAABD6D19D5644200C765E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,8 +111,6 @@
 			children = (
 				3DAABD6F19D5644200C765E1 /* AppDelegate.h */,
 				3DAABD7019D5644200C765E1 /* AppDelegate.m */,
-				3DA167F01A01D05F002A591D /* DataConnectionViewController.h */,
-				3DA167F11A01D05F002A591D /* DataConnectionViewController.m */,
 				3DAABD7819D5644200C765E1 /* Images.xcassets */,
 				3DAABD7A19D5644200C765E1 /* LaunchScreen.xib */,
 				3DAABD7519D5644200C765E1 /* Main.storyboard */,
@@ -236,7 +231,6 @@
 			files = (
 				3DAABD7419D5644200C765E1 /* MediaConnectionViewController.m in Sources */,
 				3DAABD7119D5644200C765E1 /* AppDelegate.m in Sources */,
-				3DA167F21A01D05F002A591D /* DataConnectionViewController.m in Sources */,
 				3DAABD6E19D5644200C765E1 /* main.m in Sources */,
 				3DB8290819FA09D2001041F8 /* PeersListViewController.m in Sources */,
 				3DA167EF1A01CF1B002A591D /* MenuViewController.m in Sources */,
